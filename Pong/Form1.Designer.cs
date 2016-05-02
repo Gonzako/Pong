@@ -88,6 +88,7 @@
             this.MaximizeBox = false;
             this.Name = "Pong";
             this.Text = "Pong";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Pong_FormClosing);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Pong_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Pong_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Pong_KeyUp);

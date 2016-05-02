@@ -15,12 +15,16 @@ namespace Pong
         private PictureBox pala;
         private Keys arriba;
         private Keys abajo;
+        private Point pos;
+
+        public PictureBox Pala { get { return pala; } }
 
         public Raqueta(PictureBox pala, Keys arriba, Keys abajo)
         {
             this.pala = pala;
             this.arriba = arriba;
             this.abajo = abajo;
+            pos = pala.Location;
         }
 
         public void KeyDown(Keys key)
@@ -41,20 +45,30 @@ namespace Pong
 
         }
 
-
-        public void Arriba()
+        public void Actualizar()
         {
-            Point pos = pala.Location;
-            pos.Y -= 5;
-            pala.Location = pos;
+            if (esKeyDownPresionada) { this.Abajo(); }
+            if (esKeyUpPresionada) { this.Arriba(); }
+        }
+
+        private void Arriba()
+        {
+            if (pala.Location.Y >= 20)
+            {
+                pos.Y -= 5;
+                pala.Location = pos;
+            }
 
         }
 
-        public void Abajo()
+
+        private void Abajo()
         {
-            Point pos = pala.Location;
-            pos.Y += 5;
-            pala.Location = pos;
+            if ((pala.Location.Y+pala.Size.Height) < 550)
+            {
+                pos.Y += 5;
+                pala.Location = pos;
+            }
 
         }
 
