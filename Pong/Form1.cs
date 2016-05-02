@@ -15,6 +15,7 @@ namespace Pong
         private Marcador puntuación;
         private Raqueta jugIzquierda;
         private Raqueta jugDerecha;
+        private Pelota bola;
 
         public Pong()
         {
@@ -23,6 +24,7 @@ namespace Pong
             puntuación = new Marcador(PuntuaciónJugadores);
             jugIzquierda = new Raqueta(JugadorIzq, Keys.W, Keys.S);
             jugDerecha = new Raqueta(JugadorDer, Keys.Up, Keys.Down);
+            bola = new Pelota(Pelota);
 
         }
 
