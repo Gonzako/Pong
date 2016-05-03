@@ -28,10 +28,10 @@ namespace Pong
             jugDerecha = new Raqueta(JugadorDer, Keys.Up, Keys.Down);
             bola = new Pelota(Pelota);
             myTimer.Tick += new EventHandler(TimerEventProcessor);
-            myTimer.Interval = 33;
+            myTimer.Interval = 1000/60;
             myTimer.Start();
 
-
+            
         }
 
 
@@ -60,10 +60,27 @@ namespace Pong
             jugIzquierda.Actualizar();
             jugDerecha.Actualizar();
             bola.Mover();
-            bola.Choque(jugDerecha.Pala.Location.Y);
-            bola.Choque(jugIzquierda.Pala.Location.Y);
+            bola.Choque(jugDerecha.Pala.Location.Y, Jugadores.Derecha);
+            bola.Choque(jugIzquierda.Pala.Location.Y, Jugadores.Izquierda);
+            
+            if (bola.Pos.X <= 1 || bola.Pos.X >= 790)
+            {
+                if (bola.Pos.X >= 790)
+                    if(puntuación.Aumentador(Jugadores.Izquierda))Ganador(Jugadores.Izquierda);
+                if (bola.Pos.X <= 1)
+                    if(puntuación.Aumentador(Jugadores.Derecha))Ganador(Jugadores.Derecha);
+                bola.reset();
+            }
+
         }
 
+        private void Ganador(Jugadores jugador)
+        {
+            myTimer.Stop();
+            if (jugador == Jugadores.Izquierda) labeInvisible.Text = "¡Jugador 1 es el ganador!";
+            else if (jugador == Jugadores.Derecha) labeInvisible.Text = "¡Jugador 2 es el ganador!";
+            labeInvisible.Visible = true;
+        }
 
         private void Pong_Paint(object sender, PaintEventArgs e)
         {
