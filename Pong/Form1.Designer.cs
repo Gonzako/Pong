@@ -32,6 +32,7 @@
             this.JugadorDer = new System.Windows.Forms.PictureBox();
             this.JugadorIzq = new System.Windows.Forms.PictureBox();
             this.Pelota = new System.Windows.Forms.PictureBox();
+            this.labeInvisible = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.JugadorDer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JugadorIzq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pelota)).BeginInit();
@@ -75,12 +76,25 @@
             this.Pelota.TabIndex = 4;
             this.Pelota.TabStop = false;
             // 
+            // labeInvisible
+            // 
+            this.labeInvisible.AutoSize = true;
+            this.labeInvisible.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeInvisible.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.labeInvisible.Location = new System.Drawing.Point(30, 160);
+            this.labeInvisible.Name = "labeInvisible";
+            this.labeInvisible.Size = new System.Drawing.Size(742, 73);
+            this.labeInvisible.TabIndex = 5;
+            this.labeInvisible.Text = "Jugador 1 es el ganador!";
+            this.labeInvisible.Visible = false;
+            // 
             // Pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.labeInvisible);
             this.Controls.Add(this.Pelota);
             this.Controls.Add(this.JugadorIzq);
             this.Controls.Add(this.JugadorDer);
@@ -106,6 +120,7 @@
         private System.Windows.Forms.PictureBox JugadorDer;
         private System.Windows.Forms.PictureBox JugadorIzq;
         private System.Windows.Forms.PictureBox Pelota;
+        private System.Windows.Forms.Label labeInvisible;
     }
 }
 

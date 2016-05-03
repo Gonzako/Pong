@@ -53,7 +53,7 @@ namespace Pong
 
         private void Arriba()
         {
-            if (pala.Location.Y >= 20)
+            if (pala.Location.Y >= 8)
             {
                 pos.Y -= 5;
                 pala.Location = pos;
@@ -64,7 +64,7 @@ namespace Pong
 
         private void Abajo()
         {
-            if ((pala.Location.Y+pala.Size.Height) < 550)
+            if ((pala.Location.Y+pala.Size.Height) < 560)
             {
                 pos.Y += 5;
                 pala.Location = pos;
