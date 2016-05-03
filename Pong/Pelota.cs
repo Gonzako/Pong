@@ -41,7 +41,7 @@ namespace Pong
         {
             //mira si choca. Si cierto, cambia la velocidad
             bool lado;
-            if (jugador == Jugadores.Derecha) lado = pos.X >= 750 && pos.X <= 762;
+            if (jugador == Jugadores.Derecha) lado = pos.X >= 755 && pos.X <= 767;
             else lado = pos.X <= 24 && pos.X >= 12;
 
             if ( lado && (pos.Y+10 >= Y && pos.Y <= Y + 50))
@@ -50,7 +50,7 @@ namespace Pong
                 
                 velocidadX = rand.Next((int)velocidadTotal * 5 / 10, (int)velocidadTotal * 9 / 10);
                 velocidadY = (int)Math.Sqrt(velocidadTotal * velocidadTotal - velocidadX * velocidadX);
-                if (pos.X >= 750 && pos.X <= 762)
+                if (pos.X >= 755 && pos.X <= 767)
                 {
                     velocidadX *= -1;
                     sentidoX = -1;
